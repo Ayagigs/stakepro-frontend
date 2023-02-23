@@ -13,7 +13,9 @@ This project was created using vite + react.
 npm install
 ```
 
-## Run the project in development mode, use the following commamd: 
+## Run in Development mode
+
+Use the following command: 
 
 ```bash
 npm run dev
