@@ -1,7 +1,29 @@
-export default function App() {
+// import Signup from "./components/SignUp";
+
+// export default function App() {
+//   return (
+//     <Signup />
+//   )
+// }
+
+
+// import "./App.css";
+import Tabs from "./components/Tab";
+
+const App = () => {
   return (
-    <h1 className="text-3xl font-bold underline">
-      Good day everyone in Team 3 Frontend!!!
-    </h1>
-  )
+    <div className="App">
+      <Tabs />
+    </div>
+  );
 }
+
+export default App;
+
+
+
+
+
+
+
+
