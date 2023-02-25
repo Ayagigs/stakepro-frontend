@@ -1,4 +1,6 @@
 import React from "react"
+import { FiMail } from 'react-icons/fi'
+import { AiOutlineEye } from 'react-icons/ai'
 
 export default function Login() {
     return (
@@ -17,19 +19,27 @@ export default function Login() {
                     <div className="h-[20rem] flex justify-between items-center flex-col ">
                         <div>
                             <label className="block font-light text-sm">Email address</label>
-                            <input type="text" placeholder="example@belrah.com" className=" border w-[469px] h-[60px] px-3 py-5 mt-2 hover:outline-none focus:outline-none focus:ring-1 focus:ring-indigo-600 rounded-md"/>
+                            <div className="relative flex item-center justify-center">
+                                <FiMail size="25" color="#9C9C9D" className="absolute pointer-events-none m-6 ml-96"/>
+                                <input type="text" placeholder="example@belrah.com" className=" border w-[469px] h-[60px] px-3 py-5 mt-2 hover:outline-none focus:outline-none focus:ring-1 focus:ring-red-400 rounded-md" />
+                            </div>
+                            
                         </div>
                         <div>
                             <label className="block font-light text-sm">Password</label>
-                            <input type="password" placeholder="**********" className=" border w-[469px] h-[60px] px-3 py-5 mt-2 hover:outline-none focus:outline-none focus:ring-1 focus:ring-indigo-600 rounded-md"/>
+                            
+                            <div className="relative flex item-center justify-center" >
+                                <AiOutlineEye size="28" color="#9C9C9D" className="absolute pointer-events-none m-6 ml-96" />
+                                <input type="password" placeholder="**********" className=" border w-[469px] h-[60px] px-3 py-5 mt-2 hover:outline-none focus:outline-none focus:ring-1 focus:ring-red-400 rounded-md"/>
+                            </div>
                         </div>
                     <div/>
                     <div className="flex justify-between items-center flex-row w-[469px]">
-                        <div className=" w-[10rem] flex justify-evenly items-center">
+                        <div className=" w-[8rem] flex justify-evenly items-center">
                             <input type="checkbox" className="h-[30px] w-[18px] "/>
                             <label className="block font-light text-sm">Remember me</label>
                         </div>
-                        <div className=""> 
+                        <div className="font-light text-sm"> 
                             <a href="">Forgot Password?</a>
                         </div>
                     </div>    
@@ -41,7 +51,7 @@ export default function Login() {
                             <p>Sign in with Google</p>
                         </div>
                         <div className="">
-                            <p>Dont have an account? <a href="">Sign Up</a></p>
+                            <p>Dont have an account? <a href="" className="text-red-400">Sign Up</a></p>
                         </div>
                     </div>
             </div>
