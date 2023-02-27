@@ -2,15 +2,16 @@
     display: flex;  
   }
   .tab {  
-    justify-content: center;
-    align-items: center;
+    justify-content: center; 
+    align-items: center; 
     width: 100%;
     background: lightsteelblue; 
-    padding: 2em 0;  
+    /* padding: 2em 0;   */
+    padding: 1em 0;
     border: none;
   }
   .tab:not(:last-child) {
-    border-right: 1px solid steelblue;  
+    border-right: 1px solid steelblue;   
   }
   .tab.active {
     background: steelblue;
@@ -19,7 +20,7 @@
   .panel {
     display: none;
     background-color: #eaeaea;
-    padding: 10px;
+    padding: 10px; 
   }
   .panel.active {
     display: block;

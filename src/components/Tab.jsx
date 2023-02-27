@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import "../components/tabs.css";
+import EmailSignUp from "./EmailSignUp";
 import Signup from "./EmailSignUp";
+import MobileSignup from "./MobileSignUp";
 
 const Tabs = () => {
   const [activeIndex, setActiveIndex] = useState(1);
@@ -13,13 +15,13 @@ const Tabs = () => {
           className={`tab ${checkActive(1, "active")}`}
           onClick={() => handleClick(1)}
         >
-          Product Info
+          Email
         </button>
         <button
           className={`tab ${checkActive(2, "active")}`}
           onClick={() => handleClick(2)}
         >
-          Customer Reviews
+          Mobile
         </button>
         {/* <button
           className={`tab ${checkActive(3, "active")}`}
@@ -31,10 +33,12 @@ const Tabs = () => {
       <div className="panels">
         <div className={`panel ${checkActive(1, "active")}`}>
           {/* <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean erat ligula, feugiat at felis vitae, porttitor lacinia quam.</p> */}
-          <Signup />
+          {/* <EmailSignUp /> */}
+          <EmailSignUp />
         </div>
         <div className={`panel ${checkActive(2, "active")}`}>
-          <p>Nulla lobortis quis massa quis lobortis. Nullam porta semper lorem, vel efficitur augue rutrum quis. Suspendisse potenti.</p>
+          {/* <p>Nulla lobortis quis massa quis lobortis. Nullam porta semper lorem, vel efficitur augue rutrum quis. Suspendisse potenti.</p> */}
+          <MobileSignup />
         </div>
         {/* <div className={`panel ${checkActive(3, "active")}`}>
           <p>Cras porta consectetur dolor porttitor fringilla. Cras vitae urna ac erat fermentum egestas. Donec egestas cursus scelerisque.</p>

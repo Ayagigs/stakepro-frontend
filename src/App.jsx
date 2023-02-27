@@ -8,12 +8,14 @@
 
 
 // import "./App.css";
+import SignUp from "./components/SignUp";
 import Tabs from "./components/Tab";
 
 const App = () => {
   return (
     <div className="App">
-      <Tabs />
+      {/* <Tabs /> */}
+      <SignUp />
     </div>
   );
 }
