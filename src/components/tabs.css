@@ -1,3 +1,5 @@
+body {background-color: #FAFDFF;}
+
 .tabs {  
     display: flex;  
   }
@@ -19,9 +21,13 @@
   }
   .panel {
     display: none;
-    background-color:  #FFFFFF; 
+    background-color:  #FFFFFF;  
     padding: 10px; 
   }
   .panel.active {
     display: block;
   }
+
+
+
+  

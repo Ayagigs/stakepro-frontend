@@ -1,7 +1,7 @@
 export default function MobileSignup()  {
     return (
         <div className="relative flex flex-col justify-center min-h-max overflow-hidden">
-             <div className="w-full p-6 m-auto bg-white rounded-md shadow-xl shadow-rose-600/40 ring-2 ring-indigo-600 lg:max-w-xl">
+             <div className="w-full p-6 m-auto bg-white rounded-md shadow-xl shadow-rose-600/40 ring-2 ring-[#FFFFFF] lg:max-w-xl">
               
                 <form className="mt-6">
                     <div className="mb-2">
@@ -56,21 +56,12 @@ export default function MobileSignup()  {
                         />
                     </div>
 
-
-
-
-
-        
-  
-
       <label>
         <input type="checkbox"
         />
-        Remember me
+         I agree with the Terms and Conditions of Stakepro
        </label>
     
-
-
                     <div className="mt-6">
                         <button className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-[#FF6842] rounded-md hover:bg-indigo-600 focus:outline-none focus:bg-indigo-600">
                             Sign up
