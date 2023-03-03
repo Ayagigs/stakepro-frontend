@@ -2,6 +2,7 @@ import React from "react"
 import { FiMail } from 'react-icons/fi'
 import { AiOutlineEye } from 'react-icons/ai'
 import { FcGoogle } from 'react-icons/fc'
+import { Link } from "react-router-dom"
 
 
 export default function Login() {
@@ -14,7 +15,7 @@ export default function Login() {
                     <div className="h-[80px] flex justify-between  items-center flex-row">
                         <div className=" h-[80px] w-[15rem] flex items-center justify-around text-xl font-normal">
                             <a href="" className="text-red-400 ">Email</a>
-                            <a href="{`./Mobile.jsx`}">Mobile</a>
+                            <a href="/mobile">Mobile</a>
                         </div>
                     </div>
                 <div className="relative mt-4 text-left">

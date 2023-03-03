@@ -10,7 +10,7 @@ export default function Mobile() {
                 </div>
                 <div className="h-[80px] flex justify-between  items-center flex-row ">
                     <div className=" h-[80px] w-[15rem] flex items-center justify-around text-xl font-normal">
-                        <a href="" className="">Email</a>
+                        <a href="/login" className="">Email</a>
                         <a href="" className="text-red-400 ">Mobile</a>
                     </div>
                 </div>
