@@ -1,7 +1,27 @@
-export default function App() {
+import Home from "./pages/home";
+
+const App = () => {
   return (
-    <h1 className="text-3xl font-bold underline">
-      Good day everyone in Team 3 Frontend!!!
-    </h1>
-  )
+    <div className="App">
+     
+      {/* <SignUp /> */}
+      <Home />
+      
+     
+
+    </div>
+  );
 }
+
+export default App;
+
+
+
+
+
+
+
+
+
+
+
