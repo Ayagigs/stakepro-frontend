@@ -1,11 +1,12 @@
 import React from 'react'
 
+
 export default function VerifyAccOne() {
   return (
     <div className=' h-[100vh] w-[100%] flex items-center justify-center '>
       <div className='h-[541px] w-[486px] bg-white rounded-[20px] flex items-center justify-center flex-col shadow-xl'>
         <div className='bg-red-400 h-[131px] w-[131px] rounded-full'>
-
+          <img src="/src/img/Ellipse 188.png" alt="" />
         </div>
         <div className='mt-[10px]'>
             <h1 className='text-[32px] font-normal'>Verify your Account</h1>
