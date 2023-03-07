@@ -12,14 +12,14 @@ export default function Mobile() {
                 </div>
                 <div className="h-[80px] flex justify-between  items-center flex-row ">
                     <div className=" h-[80px] w-[15rem] flex items-center justify-around text-xl font-normal">
-                        <a href="/login" className="">Email</a>
+                        <a href="/" className="">Email</a>
                         <a href="" className="text-red-400 ">Mobile</a>
                     </div>
                 </div>
                 <div className=" flex items-center justify-between flex-col h-[350px] ">
                     <div className=" flex items-center justify-evenly w-[100%] flex-row">
                         <div className="flex items-center justify-center flex-col">
-                            <label htmlFor="" className="block font-light text-sm mr-[50px] mb-[13px]">Country</label>
+                            <label htmlFor="" className="block font-light text-sm mr-[8px] mb-[13px]">Country Code</label>
                             <select name="Numbers" id="" className="h-[50px] w-[100px] text-center rounded-md text-[#9C9C9D]  focus:outline-none focus:ring-1 focus:ring-red-400 ">
                                 <option value="" className="border-gray-700">+234</option>
                                 <option value="">+1</option>

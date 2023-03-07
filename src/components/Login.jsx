@@ -18,7 +18,7 @@ export default function Login() {
                             <a href="/mobile">Mobile</a>
                         </div>
                     </div>
-                <div className="relative mt-4 text-left ">
+                <div className="relative mt-4 text-left ">    
                     <div className="h-[20rem] flex justify-between items-center flex-col ">
                         <div>
                             <label className="block font-light text-sm mb-2">Email address</label>
