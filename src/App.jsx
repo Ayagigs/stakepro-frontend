@@ -1,13 +1,16 @@
-import Home from "./pages/home";
+import Navbar from "./components/Navbar";
+import HomeHeading1 from "./features/HomeHeading1";
+
 
 const App = () => {
   return (
     <div className="App">
      
-      {/* <SignUp /> */}
-      <Home />
+     {/* <Navbar />
+     <HomeHeading1 /> */}
       
-     
+    <Navbar/>
+     <HomeHeading1/>
 
     </div>
   );
