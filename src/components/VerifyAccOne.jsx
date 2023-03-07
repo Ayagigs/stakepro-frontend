@@ -9,7 +9,7 @@ export default function VerifyAccOne() {
           <img src="/src/img/Ellipse 188.png" alt="" />
         </div>
         <div className='mt-[10px]'>
-            <h1 className='text-[32px] font-normal'>Verify your Account</h1>
+            <h1 className='text-[32px] font-normal text-[#022738]'>Verify your Account</h1>
         </div>
         <div className='w-[320px] h-max text-center mt-[5px]'>
             <p className=' text-[16px] font-normal text-[#7C7C7C]'>Now we’ll ask you for information such as  
