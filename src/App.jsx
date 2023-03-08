@@ -1,10 +1,10 @@
 import { Routes, Route } from 'react-router-dom';
+import Homepage from './pages/Homepage';
 import LandingNavBar from './components/LandingNavBar';
 import AboutUsPage from './pages/AboutUsPage';
 import BlogsPage from './pages/BlogsPage';
 import CommunityPage from './pages/CommunityPage';
 import ContactPage from './pages/ContactPage';
-import Homepage from './pages/Homepage';
 import PricingMonthly from './pages/PricingMonthly';
 
 
