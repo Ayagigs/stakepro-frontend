@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "../pages/tabs.css";
+import "../features/tabs.css";
 import EmailSignUp from "./EmailSignUp";
 import MobileSignup from "./MobileSignUp";
 
