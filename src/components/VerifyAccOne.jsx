@@ -15,7 +15,7 @@ export default function VerifyAccOne() {
             <p className=' text-[16px] font-normal text-[#7C7C7C]'>Now we’ll ask you for information such as  
             Date of birth and ID to verify your identity.</p>
         </div>
-        <button className='h-[56px] w-[280px] bg-[#FF6842] rounded-md text-[white] text-[20px] mt-[80px]'>Next</button>
+        <a href="/verify2" className='h-[56px] w-[280px] bg-[#FF6842] text-center flex items-center justify-center rounded-md text-[white] text-[20px] mt-[80px]'>Next</a>
       </div>
     </div>
   )
