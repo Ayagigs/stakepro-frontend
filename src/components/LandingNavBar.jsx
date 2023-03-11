@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 import logo from '../assets/stakepro_log1.svg';
+import logo1 from '../assets/under_contruction.jpg';
 
 export default function LandingNavBar() {
 
@@ -416,6 +417,10 @@ export default function LandingNavBar() {
           </div>
        
         </div>
+
+        <div class="flex items-center justify-center h-screen">
+        <img className="h-{100px} w-[50%] " src={logo1} alt='logo'/>
+      </div>
     </div>
   )
  }
