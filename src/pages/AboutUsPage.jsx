@@ -1,13 +1,12 @@
 import React from 'react'
 import Navbar from '../components/Navbar'
-import logo from '../assets/under_contruction.jpg';
 
 function AboutUsPage() {
   return (
     <div>
       <Navbar/>
      
-      <section id="cta1" class="bg-brightRed  bg-[url('../img/about.svg')] h-[29.75rem]" >
+      <section id="cta1" class="bg-neutral-100  bg-[url('../public/img/about.svg')] h-[29.75rem] " > 
 
         <div
         class="container flex flex-col items-center justify-between px-6 py-24 mx-auto space-y-12  md:py-12 md:flex-col md:space-y-10"
@@ -40,7 +39,7 @@ function AboutUsPage() {
 
         {/* class="bg-brightRed  bg-[url('../img/about.svg')] h-[29.75rem]" */}
         <div class="flex flex-col space-y-12 md:w-1/2">
-          <div  class="bg-brightRed  bg-[url('../img/about_section1.svg')] h-[20rem]">
+          <div  class="bg-brightRed  bg-[url('../public/img/about_section1.svg')] h-[20rem]">
           {/* <h2 class="max-w-md text-4xl font-bold text-center md:text-left">
             What's different about Manage?
           </h2>
@@ -51,7 +50,7 @@ function AboutUsPage() {
           </p> */}
           </div>
 
-          <div  class="bg-brightRed  bg-[url('../img/about_section2.svg')] h-[20rem]">
+          <div  class="bg-brightRed  bg-[url('../public/img/about_section2.svg')] h-[20rem]">
           {/* <h2 class="max-w-md text-4xl font-bold text-center md:text-left">
             What's different about Manage?
           </h2> */}

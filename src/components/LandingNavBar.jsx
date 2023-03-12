@@ -1,9 +1,9 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { Link } from 'react-router-dom';
 import logo from '../assets/stakepro_log1.svg';
-import logo1 from '../assets/under_contruction.jpg';
 
 export default function LandingNavBar() {
+  const [show, setShow] = useState(false);
 
         const [open, setOpen] = React.useState(false);
         const [flyer, setFlyer] = React.useState(false);
@@ -50,7 +50,13 @@ export default function LandingNavBar() {
               </div>
               <nav className="hidden md:flex space-x-10">
 
-                  <Link to={"/"} 
+                    {show==true ?
+                <Link to={"/landing"} 
+                    className="text-base font-medium text-gray-500 hover:text-gray-900">
+                      Landing
+                  </Link>  : ""}
+
+                  <Link to={"/home"} 
                     className="text-base font-medium text-gray-500 hover:text-gray-900">
                       Home
                   </Link> 
@@ -415,12 +421,7 @@ export default function LandingNavBar() {
 
             </div>
           </div>
-       
         </div>
-
-        <div class="flex items-center justify-center h-screen">
-        <img className="h-{100px} w-[50%] " src={logo1} alt='logo'/>
-      </div>
     </div>
   )
  }
