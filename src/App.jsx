@@ -1,19 +1,28 @@
-import Login from "./components/Login";
-import Mobile from "./components/Mobile";
-import { Route, Routes } from "react-router-dom";
-import Logo from "./Logo";
+import { Routes, Route } from 'react-router-dom';
+import Homepage from './components/HomePage';
+import AboutUsPage from './pages/AboutUsPage';
+import BlogsPage from './pages/BlogsPage';
+import CommunityPage from './pages/CommunityPage';
+import ContactPage from './pages/ContactPage';
+import LandingPage from './components/LandingPage';
+import PricingMonthly from './pages/PricingMonthly';
 
-export default function App() {
+
+const App = () => {
   return (
-    <>
-      <>
-        <Logo />
-        <Routes>
-          <Route path="/" element={<Login/>} />
-          <Route path="/mobile" element={<Mobile/>} />
-        </Routes>
+    <div className="App">
+      <Routes>
+        <Route path="/" element={<LandingPage/>}></Route> 
+        <Route path="home" element={<Homepage/>}></Route>
+        <Route path="about" element={<AboutUsPage/>}></Route> 
+        <Route path="pricing" element={<PricingMonthly/>}></Route> 
+        <Route path="blogs" element={<BlogsPage/>}></Route> 
+        <Route path="community" element={<CommunityPage/>}></Route> 
+        <Route path="contact" element={<ContactPage/>}></Route> 
         
-      </>
-    </>
-  )
+      </Routes>
+    </div>
+  );
 }
+
+export default App;
