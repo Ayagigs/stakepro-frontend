@@ -6,6 +6,8 @@ import CommunityPage from './pages/CommunityPage';
 import ContactPage from './pages/ContactPage';
 import LandingPage from './components/LandingPage';
 import PricingMonthly from './pages/PricingMonthly';
+import Login from './features/Login';
+import Mobile from './features/Mobile';
 
 
 const App = () => {
@@ -19,7 +21,8 @@ const App = () => {
         <Route path="blogs" element={<BlogsPage/>}></Route> 
         <Route path="community" element={<CommunityPage/>}></Route> 
         <Route path="contact" element={<ContactPage/>}></Route> 
-        
+        <Route path="/email" element={<Login/>}></Route> 
+        <Route path="/mobile" element={<Mobile/>}></Route>
       </Routes>
     </div>
   );

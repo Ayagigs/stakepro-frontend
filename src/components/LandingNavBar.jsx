@@ -407,7 +407,7 @@ export default function LandingNavBar() {
                  
                     {/* <a href="#" className="text-indigo-600 hover:text-indigo-500"> */}
                     <a
-                    href="#"
+                    href="/email"
                     className="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-[#FF6842] hover:bg-[#FF6842]"
                   >
                       Log in
