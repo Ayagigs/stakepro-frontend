@@ -25,34 +25,29 @@ function Footer() {
         </h2>
         <p>Be the first one to know  about discounts, offers and events</p>
         </div>
-        {/* <!-- Button --> */}
-        {/* <div>
-          <a
-            href="#"
-            class="p-3 px-6 pt-2 text-brightRed bg-white rounded-full shadow-2xl baseline hover:bg-gray-900"
-            >Get Started</a
-          >
-        </div> */}
-
+       
          {/* <!-- Input Container --> */}
          <div class="flex flex-col justify-between">
           <form>
             <div class="flex space-x-3">
-              <input
-                type="text"
-                class="flex-1 px-4 rounded-full focus:outline-none"
-                placeholder="Enter your email"
-              />
-{/* 
-            <input type="text" class="icon" value placeholder="Search" /> */}
+             
+            <div 
+            class="w-2/3 flex justify-start items-center relative w-full"
+            > 
+                <input
+                  placeholder="Enter your email"
+                  class="border border-gray-400 rounded-lg p-2 pl-10 w-full bg-[#FF6842] placeholder-[white]"
+                  />
+                <img src="img/email_footerIcon.svg" class="absolute mr-2 w-10" alt="Search Icon" />
+            </div>
 
       
 
-              <button
+              {/* <button
                 class="px-6 py-2 text-white rounded-full bg-brightRed hover:bg-brightRedLight focus:outline-none"
               >
                 Go
-              </button>
+              </button> */}
             </div>
           </form>
         </div> 
