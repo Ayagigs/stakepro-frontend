@@ -6,12 +6,14 @@ import CommunityPage from './pages/CommunityPage';
 import ContactPage from './pages/ContactPage';
 import LandingPage from './components/LandingPage';
 import PricingMonthly from './pages/PricingMonthly';
+import DashboardHome from './dashboard/dashboard_home';
+import SignUp from './features/SignUp';
 
 
 const App = () => {
   return (
     <div className="App">
-      <Routes>
+     <Routes>
         <Route path="/" element={<LandingPage/>}></Route> 
         <Route path="home" element={<Homepage/>}></Route>
         <Route path="about" element={<AboutUsPage/>}></Route> 
@@ -19,7 +21,10 @@ const App = () => {
         <Route path="blogs" element={<BlogsPage/>}></Route> 
         <Route path="community" element={<CommunityPage/>}></Route> 
         <Route path="contact" element={<ContactPage/>}></Route> 
-      </Routes>
+      </Routes> 
+ 
+      {/* <DashboardHome/>  */}
+      {/* <SignUp/> */}
     </div>
   );
 }
