@@ -13,7 +13,7 @@ import SignUp from './features/SignUp';
 const App = () => {
   return (
     <div className="App">
-     <Routes>
+      <Routes>
         <Route path="/" element={<LandingPage/>}></Route> 
         <Route path="home" element={<Homepage/>}></Route>
         <Route path="about" element={<AboutUsPage/>}></Route> 
@@ -21,7 +21,7 @@ const App = () => {
         <Route path="blogs" element={<BlogsPage/>}></Route> 
         <Route path="community" element={<CommunityPage/>}></Route> 
         <Route path="contact" element={<ContactPage/>}></Route> 
-      </Routes> 
+      </Routes>  
  
       {/* <DashboardHome/>  */}
       {/* <SignUp/> */}
