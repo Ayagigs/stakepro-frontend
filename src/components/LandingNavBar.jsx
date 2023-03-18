@@ -397,21 +397,7 @@ export default function LandingNavBar() {
       className="group bg-[#FF6842] rounded-md text-gray-500 inline-flex items-center text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
       onClick={() => (setFlyerThree(!flyerThree), setFlyer(false))}
     >
-                {/* <a
-                    href="#"
-                    className="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700"
-                  >
-                    Sign up
-                  </a> */}
-                  
-                 
-                    {/* <a href="#" className="text-indigo-600 hover:text-indigo-500"> */}
-                    <a
-                    href="/email"
-                    className="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-[#FF6842] hover:bg-[#FF6842]"
-                  >
-                      Log in
-                    </a>
+              
 
     </button>
  
