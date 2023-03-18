@@ -23,6 +23,10 @@ const App = () => {
         <Route path="contact" element={<ContactPage/>}></Route> 
         <Route path="/mobile" element={<Mobile/>}></Route> 
         <Route path="/email" element={<Login/>}></Route>
+        {/* <Route path="/verify1" element={<VerifyAccOne />} /> 
+        <Route path="/verify2" element={<VerifyAccTwo />} /> 
+        <Route path="/verify3" element={<VerifyAccThree />} /> 
+        <Route path="/verify4" element={<VerifyAccFour />} />  */}
       </Routes>
     </div>
   );
