@@ -6,9 +6,6 @@ import CommunityPage from './pages/CommunityPage';
 import ContactPage from './pages/ContactPage';
 import LandingPage from './components/LandingPage';
 import PricingMonthly from './pages/PricingMonthly';
-import Mobile from './features/Mobile';
-import Login from './features/Login';
-
 
 const App = () => {
   return (
@@ -21,8 +18,6 @@ const App = () => {
         <Route path="blogs" element={<BlogsPage/>}></Route> 
         <Route path="community" element={<CommunityPage/>}></Route> 
         <Route path="contact" element={<ContactPage/>}></Route> 
-        <Route path="/mobile" element={<Mobile/>}></Route> 
-        <Route path="/email" element={<Login/>}></Route>
       </Routes>
     </div>
   );
