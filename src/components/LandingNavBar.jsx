@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, { useEffect, useState} from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../assets/stakepro_log1.svg';
 
@@ -9,6 +9,68 @@ export default function LandingNavBar() {
         const [flyer, setFlyer] = React.useState(false);
         const [flyerTwo, setFlyerTwo] = React.useState(false);
         const [flyerThree, setFlyerThree] = React.useState(false);
+
+
+
+        const [walletAddress, setWalletAddress] = useState("");
+
+        useEffect(() => {
+          getCurrentWalletConnected();
+          addWalletListener();
+        }, [walletAddress]);
+      
+        const connectWallet = async () => {
+          if (typeof window != "undefined" && typeof window.ethereum != "undefined") {
+            try {
+              /* MetaMask is installed */
+              const accounts = await window.ethereum.request({
+                method: "eth_requestAccounts",
+              });
+              setWalletAddress(accounts[0]);
+              console.log(accounts[0]);
+            } catch (err) {
+              console.error(err.message);
+            }
+          } else {
+            /* MetaMask is not installed */
+            console.log("Please install MetaMask");
+          }
+        };
+      
+        const getCurrentWalletConnected = async () => {
+          if (typeof window != "undefined" && typeof window.ethereum != "undefined") {
+            try {
+              const accounts = await window.ethereum.request({
+                method: "eth_accounts",
+              });
+              if (accounts.length > 0) {
+                setWalletAddress(accounts[0]);
+                console.log(accounts[0]);
+              } else {
+                console.log("Connect to MetaMask using the Connect button");
+              }
+            } catch (err) {
+              console.error(err.message);
+            }
+          } else {
+            /* MetaMask is not installed */
+            console.log("Please install MetaMask");
+          }
+        };
+      
+        const addWalletListener = async () => {
+          if (typeof window != "undefined" && typeof window.ethereum != "undefined") {
+            window.ethereum.on("accountsChanged", (accounts) => {
+              setWalletAddress(accounts[0]);
+              console.log(accounts[0]);
+            });
+          } else {
+            /* MetaMask is not installed */
+            setWalletAddress("");
+            console.log("Please install MetaMask");
+          }
+        };
+      
 
   return (
     <div >
@@ -144,7 +206,7 @@ export default function LandingNavBar() {
 <div className="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
 
 <div className="relative">
-    <button 
+    {/* <button 
     type="button"
       className="group bg-[#FF6842] rounded-md text-gray-500 inline-flex items-center text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
       onClick={() => (setFlyerThree(!flyerThree), setFlyer(false))}
@@ -158,7 +220,31 @@ export default function LandingNavBar() {
                    
                     </a>
                  
-    </button>
+    </button> */}
+
+<button 
+                      type="button"
+                        className="group bg-[#FF6842] rounded-md text-gray-500 inline-flex items-center text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                       
+                        onClick={connectWallet}
+                      >
+                                  
+                        <a
+                          href="#"
+                            className="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-[#FF6842] hover:bg-[#FF6842]"
+                          >
+                                       
+                            <span className="is-link has-text-weight-bold">
+                            {walletAddress && walletAddress.length > 0
+                              ? `Connected: ${walletAddress.substring(
+                                  0,
+                                  6
+                              )}...${walletAddress.substring(38)}`
+                              : "Connect Wallet"}
+                            </span>
+                                    
+                          </a>
+                      </button>
  
   </div>
 </div>
