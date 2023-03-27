@@ -72,7 +72,7 @@ export default function Navbar() {
                       About
                     </Link>
 
-                    <Link to={"/about"}
+                    <Link to={"/stake"}
                       className="text-base font-medium text-gray-500 hover:text-gray-900">
                         Stake
                     </Link>
