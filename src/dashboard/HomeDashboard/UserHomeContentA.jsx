@@ -5,18 +5,17 @@ function UserHomeContentA() {
     <div>
 
     {/* <div className='flex flex-col'> */}
-        <div className='flex flex-col p-5 ml-6 w-full h-[189px] bg-[black] 
-        rounded-[10px] text-start pt-0'>
-        <div class="flex flex-row">
-        <h1 className='w-[467px] text-white text-[28px]'>Upgrade to Premium and Get Unlimited Access to all offers and Rewards</h1>
-        </div>
+        {/* <div className='flex flex-col p-5 m-5 justify-center w-screen h-[189px] bg-[black] 
+        rounded-[5px] text-start pt-0 mr-50'> */}
+         <div className='flex flex-col w-full h-[189px] bg-black m-5'>
+     
 
-        <div class="flex flex-row justify-between">
-        {/* <h1 className='text-white text-[32px]'>$1,037.893.46</h1> */}
+        {/* <div class="flex flex-row justify-between">
+  
         <button class='bg-[#FF6842] text-white w-[115px] h-[42px] rounded-[6px] mt-2'>
             Upgrade Now
         </button>
-        </div>
+        </div> */}
 
         </div>
 

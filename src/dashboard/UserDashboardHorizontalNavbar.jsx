@@ -5,7 +5,7 @@ export default function NavbarUserDashboard({ fixed }) {
   const [navbarOpen, setNavbarOpen] = React.useState(false);
   return (
     <nav className="relative flex flex-wrap items-center justify-between 
-     px-2 py-3 bg-[#FFFFFF] mb-3  shadow  ">
+     px-5 py-3 bg-[#FFFFFF] mb-3  shadow  ">
  
             <a href class="flex flex-row items-center">
              

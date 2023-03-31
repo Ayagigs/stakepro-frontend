@@ -19,6 +19,14 @@ export default defineConfig({
           ]
         }
     },
+
+    vite: {
+      optimizeDeps: {
+        exclude: [
+          'date-fns'
+        ]
+      }
+    },
     
   define: {
     // Some libraries use the global object, even though it doesn't exist in the browser.
@@ -29,3 +37,14 @@ export default defineConfig({
   },
 })
 
+
+// nuxt.config
+// export default {
+//   vite: {
+//     optimizeDeps: {
+//       exclude: [
+//         'date-fns'
+//       ]
+//     }
+//   }
+// }

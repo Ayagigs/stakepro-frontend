@@ -4,51 +4,31 @@ export default function HomeDashboardHorizontalNavbar() {
     const [navbar, setNavbar] = useState(false);
 
     return (
-        <nav className="w-[743px] h-[37px] m-5 justify-center items-center bg-[#022738] shadow">
-            <div className="justify-between px-4 mx-auto lg:max-w-7xl md:items-center md:flex md:px-8">
-                <div>
-                    <div className="flex items-center justify-between py-1 md:py-1 md:block">
+        <nav className="flex flex-row h-[37px] m-5 justify-start items-start bg-[#022738] shadow">
+            {/* <div className="justify-between px-0 mx-auto lg:max-w-full md:items-center md:flex md:px-0">  */}
+            {/* <div className="justify-between px-0 mx-auto lg:max-w-full md:items-center md:flex md:px-0 items-center mt-1">  */}
+                 <div className="justify-between px-0 mx-[170px] lg:max-w-full md:items-center md:flex md:px-0 items-center mt-1"> 
+                    {/* <div className="flex items-start justify-between py-1 md:py-1 md:block"> */}
                        
-                    <ul className="items-center justify-center space-y-8 md:flex md:space-x-6 md:space-y-0">
+                    <ul className="items-start justify-start space-y-8 md:flex md:space-x-20 md:space-y-0">
                             <li className="text-white hover:text-[#31FFD9]">
-                                <a href="javascript:void(0)">Performance</a>
+                                <a href="#" >Token</a>
                             </li>
                             <li className="text-white hover:text-[#31FFD9]">
-                                <a href="javascript:void(0)">Transactions</a>
-                            </li>
-                            {/* <li className="text-white hover:text-indigo-200">
-                                <a href="javascript:void(0)">About US</a>
-                            </li>
-                            <li className="text-white hover:text-indigo-200">
-                                <a href="javascript:void(0)">Contact US</a>
-                            </li> */}
-                        </ul>
-                    </div>
-                </div>
-                
-            <div className="hidden space-x-2 md:inline-block">
-                    
-                <ul className="items-center justify-center space-y-8 md:flex md:space-x-6 md:space-y-0">
-                            <li className="text-white hover:text-[#31FFD9]">
-                                <a href="javascript:void(0)">All</a>
+                                <a href="#" >Est. APR</a>
                             </li>
                             <li className="text-white hover:text-[#31FFD9]">
-                                <a href="javascript:void(0)">24hr</a>
+                                <a href="#" >Staking  Duration</a>
                             </li>
                             <li className="text-white hover:text-[#31FFD9]">
-                                <a href="javascript:void(0)">1day</a>
+                                <a href="#" >Minimum Stake</a>
                             </li>
                             <li className="text-white hover:text-[#31FFD9]">
-                                <a href="javascript:void(0)">1w</a>
-                            </li>
-                            <li className="text-white hover:text-[#31FFD9]">
-                                <a href="javascript:void(0)">1m</a>
-                            </li>
-                            <li className="text-white hover:text-[#31FFD9]">
-                                <a href="javascript:void(0)">1y</a>
+                                <a href="#" >Stake Amount</a>
                             </li>
                         </ul>
-                </div>
+                    {/* </div> */}
+                {/* </div> */}
             </div>
         </nav>
     );
