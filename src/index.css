@@ -2,10 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* body {
-    overflow-x:hidden;
-} */
-
 body {
     background-image: url('../img/bg-tablet-pattern.svg');
     overflow-x:hidden;
@@ -25,7 +21,6 @@ body {
       background-size: 500px;
     }
 
-    /* <img src="img/home.svg" alt="" /> */
     #cta1 {
       background-image: url('../img/home.svg');
     }
@@ -84,12 +79,7 @@ body {
   
 
 
-  /* .icon {
-    padding-left: 25px;
-    background: url("https://static.thenounproject.com/png/101791-200.png") no-repeat left; 
-    background-size: 20px;
-  } */
-
+ 
 
 
 

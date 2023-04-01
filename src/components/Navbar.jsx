@@ -4,6 +4,15 @@ import { Link } from 'react-router-dom';
 import logo from '../assets/stakepro_log.svg';
 import percon_icon from '../assets/person.svg';
 import UserDashboardHome from '../dashboard/HomeDashboard/UserDashboardHome';
+import Web3Modal from "web3modal";
+//import { ethers } from "ethers";
+
+//import React, {useState,useEffect} from 'react';
+import WalletConnect from "@walletconnect/web3-provider";
+import CoinbaseWalletSDK from "@coinbase/wallet-sdk";
+
+
+import WalletConnectProvider from '@walletconnect/web3-provider';
 
 
 
@@ -35,31 +44,79 @@ export default function Navbar() {
       
     
         //Motseki
-          const cryptoButton = async () => {
-            const { ethereum } = window;
-            if (ethereum.isMetaMask) {
-              setMsg("MetaMask Installed");
-              await ethereum.request({ method: "eth_requestAccounts" });
-              const accounts = await ethereum.request({ method: "eth_accounts" });
+          // const cryptoButton = async () => {
+          //   const { ethereum } = window;
+          //   if (ethereum.isMetaMask) {
+          //     setMsg("MetaMask Installed");
+          //     await ethereum.request({ method: "eth_requestAccounts" });
+          //     const accounts = await ethereum.request({ method: "eth_accounts" });
       
-              const provider = new ethers.providers.Web3Provider(ethereum);
-              const signer = provider.getSigner();
-              const message = randomString(16);
-              const signature = await signer.signMessage(message);
+          //     const provider = new ethers.providers.Web3Provider(ethereum);
+          //     const signer = provider.getSigner();
+          //     const message = randomString(16);
+          //     const signature = await signer.signMessage(message);
       
-              const signAddress = await ethers.utils.verifyMessage(message, signature);
-              if (signAddress.toLowerCase() === accounts[0].toLowerCase()) {
-                setMsg("User Login");
-                setAccnt(accounts[0]);
-                setAccount(true)
+          //     const signAddress = await ethers.utils.verifyMessage(message, signature);
+          //     if (signAddress.toLowerCase() === accounts[0].toLowerCase()) {
+          //       setMsg("User Login");
+          //       setAccnt(accounts[0]);
+          //       setAccount(true)
     
-              } else {
-                setMsg("Login failed");
+          //     } else {
+          //       setMsg("Login failed");
+          //     }
+          //   } else {
+          //     setMsg("MetaMask is not installed");
+          //   }
+          // };
+
+          const providerOptions = {
+            binancechainwallet: {
+              package: true,
+            },
+            walletconnect: {
+              package: WalletConnect, // required
+              options: {
+                infuraId:  process.env.INFURA_ID// required
               }
-            } else {
-              setMsg("MetaMask is not installed");
+            },
+          
+            coinbasewallet: {
+              package: CoinbaseWalletSDK, // Required
+              options: {
+                appName: "Coinbase", // Required
+                infuraId: process.env.INFURA_ID, // Required
+                chainId: 4, //4 for Rinkeby, 1 for mainnet (default)
+              },
+            },
+          };
+        
+          const web3Modal = new Web3Modal({
+            network: "rinkeby",
+            theme: "light", // optional, 'dark' / 'light',
+            cacheProvider: false, // optional
+            providerOptions, // required
+          });
+        
+          const [connectedAccount, setConnectedAccount] = useState("");
+        
+          const connectWeb3Wallet = async () => {
+            try {
+              const web3Provider = await web3Modal.connect();
+              const library = new ethers.providers.Web3Provider(web3Provider);
+              const web3Accounts = await library.listAccounts();
+              setConnectedAccount(web3Accounts[0]);
+            } catch (error) {
+              console.log(error);
             }
           };
+        
+          const disconnectWeb3Modal = async () => {
+            await web3Modal.clearCachedProvider();
+            setConnectedAccount("");
+          };
+        
+
 
   return (
     <div >
@@ -155,7 +212,7 @@ export default function Navbar() {
 
                   <div className="relative">
 
-                      <button 
+                      {/* <button 
                       type="button"
                         className="group bg-[#FF6842] rounded-md text-gray-500 inline-flex items-center text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                        
@@ -168,8 +225,35 @@ export default function Navbar() {
                                  connect wallet        
                             </Link>
                                      
-                      </button> 
+                      </button>  */}
 
+
+                      <button 
+                      type="button"
+                        class="group py-3 px-5 bg-[#FF6842] rounded-md text-gray-500 inline-flex items-center text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                                              
+                                              >
+                                              {/* {connectedAccount && <p>Connected to ${connectedAccount}</p>} */}
+                                              <Link to={"/wallet"}>
+                                                Wallet
+                                              </Link>
+                                              
+
+                                {!connectedAccount ? (
+                                  <button class
+                                   onClick={connectWeb3Wallet}>
+                                     <span class='p-1'>Connect </span>
+                                    </button>
+                                ) : (
+                                
+                                  <button onClick={disconnectWeb3Modal}>
+                                     <span class='p-1'>Disconnect </span>
+                                  </button>
+                                 
+                                )}
+
+                           
+                        </button> 
                     
 
                       {/* {!connected ?( <button className="ConnectBtn" onClick={cryptoButton}>

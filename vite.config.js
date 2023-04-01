@@ -38,13 +38,3 @@ export default defineConfig({
 })
 
 
-// nuxt.config
-// export default {
-//   vite: {
-//     optimizeDeps: {
-//       exclude: [
-//         'date-fns'
-//       ]
-//     }
-//   }
-// }
