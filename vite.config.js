@@ -1,13 +1,20 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 
+
+import reactRefresh from '@vitejs/plugin-react-refresh'
+import { esbuildCommonjs } from '@originjs/vite-plugin-commonjs'
+
 import { NodeGlobalsPolyfillPlugin } from '@esbuild-plugins/node-globals-polyfill'
 
 export default defineConfig({
+
   plugins: [react()],
   optimizeDeps: {
+
     esbuildOptions: {
         // Node.js global to browser globalThis
+  
         define: {
             global: 'globalThis'
         },
@@ -15,7 +22,8 @@ export default defineConfig({
         plugins: [
             NodeGlobalsPolyfillPlugin({
                 buffer: true
-            })
+            }),
+            esbuildCommonjs(['react-calendar','react-date-picker'])
           ]
         }
     },
