@@ -73,21 +73,21 @@ export default function Navbar() {
             binancechainwallet: {
               package: true,
             },
-            walletconnect: {
-              package: WalletConnect, // required
-              options: {
-                infuraId:  process.env.INFURA_ID// required
-              }
-            },
+            // walletconnect: {
+            //   package: WalletConnect, // required
+            //   options: {
+            //     infuraId:  process.env.INFURA_ID// required
+            //   }
+            // },
           
-            coinbasewallet: {
-              package: CoinbaseWalletSDK, // Required
-              options: {
-                appName: "Coinbase", // Required
-                infuraId: process.env.INFURA_ID, // Required
-                chainId: 4, //4 for Rinkeby, 1 for mainnet (default)
-              },
-            },
+            // coinbasewallet: {
+            //   package: CoinbaseWalletSDK, // Required
+            //   options: {
+            //     appName: "Coinbase", // Required
+            //     infuraId: process.env.INFURA_ID, // Required
+            //     chainId: 4, //4 for Rinkeby, 1 for mainnet (default)
+            //   },
+            // },
           };
         
           const web3Modal = new Web3Modal({
