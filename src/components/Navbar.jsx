@@ -1,12 +1,91 @@
 import React, {useState} from 'react'
-import { ethers } from "ethers";
+// import { ethers } from "ethers";
 import { Link } from 'react-router-dom';
 import logo from '../assets/stakepro_log.svg';
 import percon_icon from '../assets/person.svg';
 import UserDashboardHome from '../dashboard/HomeDashboard/UserDashboardHome';
+//Start
+
+
+import Web3Modal from "web3modal";
+import { ethers } from "ethers";
+// import { useState } from "react";
+import WalletConnect from "@walletconnect/web3-provider";
+import CoinbaseWalletSDK from "@coinbase/wallet-sdk";
+
+// function App() {
+//   console.log(process.env.INFURA_ID)
+  // const providerOptions = {
+  //   binancechainwallet: {
+  //     package: true,
+  //   },
+  //   walletconnect: {
+  //     package: WalletConnect, // required
+  //     options: {
+  //       infuraId:  process.env.INFURA_ID// required
+  //     }
+  //   },
+  
+  //   coinbasewallet: {
+  //     package: CoinbaseWalletSDK, // Required
+  //     options: {
+  //       appName: "Coinbase", // Required
+  //       infuraId: process.env.INFURA_ID, // Required
+  //       chainId: 4, //4 for Rinkeby, 1 for mainnet (default)
+  //     },
+  //   },
+  // };
+
+  // const web3Modal = new Web3Modal({
+  //   network: "rinkeby",
+  //   theme: "light", // optional, 'dark' / 'light',
+  //   cacheProvider: false, // optional
+  //   providerOptions, // required
+  // });
+
+  // const [connectedAccount, setConnectedAccount] = useState("");
+
+  // const connectWeb3Wallet = async () => {
+  //   try {
+  //     const web3Provider = await web3Modal.connect();
+  //     const library = new ethers.providers.Web3Provider(web3Provider);
+  //     const web3Accounts = await library.listAccounts();
+  //     setConnectedAccount(web3Accounts[0]);
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
+
+  // const disconnectWeb3Modal = async () => {
+  //   await web3Modal.clearCachedProvider();
+  //   setConnectedAccount("");
+  // };
+
+//   return (
+//     <div className="App">
+//       <header className="App-header">
+    
+//         <br />
+
+//         {connectedAccount && <p>Connected to ${connectedAccount}</p>}
+
+//         {!connectedAccount ? (
+//           <button onClick={connectWeb3Wallet}>Connect Wallet</button>
+//         ) : (
+//           <button onClick={disconnectWeb3Modal}>Disconnect</button>
+//         )}
+//       </header>
+//     </div>
+//   );
+// }
+
+// export default App;
 
 
 
+
+
+//Motseki
 const randomString = function (length) {
   var text = "";
   var possible =
@@ -19,6 +98,62 @@ const randomString = function (length) {
 
 // function Child1({ parentCallback })
 export default function Navbar() {
+  const providerOptions = {
+    binancechainwallet: {
+      package: true,
+    },
+    walletconnect: {
+      package: WalletConnect, // required
+      options: {
+        infuraId:  process.env.INFURA_ID// required
+      }
+    },
+  
+    coinbasewallet: {
+      package: CoinbaseWalletSDK, // Required
+      options: {
+        appName: "Coinbase", // Required
+        infuraId: process.env.INFURA_ID, // Required
+        chainId: 4, //4 for Rinkeby, 1 for mainnet (default)
+      },
+    },
+  };
+
+  const web3Modal = new Web3Modal({
+    network: "rinkeby",
+    theme: "light", // optional, 'dark' / 'light',
+    cacheProvider: false, // optional
+    providerOptions, // required
+  });
+
+  const [connectedAccount, setConnectedAccount] = useState("");
+
+  const connectWeb3Wallet = async () => {
+    try {
+      const web3Provider = await web3Modal.connect();
+      const library = new ethers.providers.Web3Provider(web3Provider);
+      const web3Accounts = await library.listAccounts();
+      setConnectedAccount(web3Accounts[0]);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const disconnectWeb3Modal = async () => {
+    await web3Modal.clearCachedProvider();
+    setConnectedAccount("");
+  };
+
+
+
+
+
+
+
+
+
+
+
   const [show, setShow] = useState(false);
 
         const [open, setOpen] = React.useState(false);
@@ -159,14 +294,25 @@ export default function Navbar() {
                       type="button"
                         className="group bg-[#FF6842] rounded-md text-gray-500 inline-flex items-center text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                        
-                        onClick={cryptoButton}
+                        onClick={connectWeb3Wallet}
                       >
                                 
                           <Link to={"/wallet"}
                                 className="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-[#FF6842] hover:bg-[#FF6842]"
                               > 
                                  connect wallet        
-                            </Link>
+                          </Link> 
+
+                      {/* {connectedAccount && <p>Connected to ${connectedAccount}</p>}
+
+                      {!connectedAccount ? (
+                        <button onClick={connectWeb3Wallet}>Connect Wallet</button>
+                      ) : (
+                        <button onClick={disconnectWeb3Modal}>Disconnect</button>
+                      )} */}
+
+
+                            
                                      
                       </button> 
 
