@@ -5,7 +5,7 @@ import nodePolyfills from 'vite-plugin-node-stdlib-browser'
 // https://vitejs.dev/config/
 export default defineConfig({
   define: {
-    "global": {},
+      global: '({})',
     'process.env': {},
 },
   plugins: [react(), nodePolyfills()],
