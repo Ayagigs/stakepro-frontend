@@ -1,9 +1,32 @@
-import React, { useEffect, useState} from 'react'
+import React, {useState} from 'react'
+import { ethers } from "ethers";
 import { Link } from 'react-router-dom';
 import logo from '../assets/stakepro_log.svg';
 import percon_icon from '../assets/person.svg';
+// import UserDashboardHome from '../dashboard/HomeDashboard/UserDashboardHome';
+import Web3Modal from "web3modal";
+//import { ethers } from "ethers";
+
+//import React, {useState,useEffect} from 'react';
+import WalletConnect from "@walletconnect/web3-provider";
+import CoinbaseWalletSDK from "@coinbase/wallet-sdk";
 
 
+import WalletConnectProvider from '@walletconnect/web3-provider';
+
+
+
+const randomString = function (length) {
+  var text = "";
+  var possible =
+    "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+  for (var i = 0; i < length; i++) {
+    text += possible.charAt(Math.floor(Math.random() * possible.length));
+  }
+  return text;
+};
+
+// function Child1({ parentCallback })
 export default function Navbar() {
   const [show, setShow] = useState(false);
 
@@ -14,69 +37,89 @@ export default function Navbar() {
 
 
 
-        const [walletAddress, setWalletAddress] = useState("");
 
-        useEffect(() => {
-          getCurrentWalletConnected();
-          addWalletListener();
-        }, [walletAddress]);
+        const [msg, setMsg] = useState();
+        const [account, setAccnt] = useState();
+        const [connected, setAccount] = useState({data: false});
+      
+    
+        //Motseki
+          // const cryptoButton = async () => {
+          //   const { ethereum } = window;
+          //   if (ethereum.isMetaMask) {
+          //     setMsg("MetaMask Installed");
+          //     await ethereum.request({ method: "eth_requestAccounts" });
+          //     const accounts = await ethereum.request({ method: "eth_accounts" });
+      
+          //     const provider = new ethers.providers.Web3Provider(ethereum);
+          //     const signer = provider.getSigner();
+          //     const message = randomString(16);
+          //     const signature = await signer.signMessage(message);
+      
+          //     const signAddress = await ethers.utils.verifyMessage(message, signature);
+          //     if (signAddress.toLowerCase() === accounts[0].toLowerCase()) {
+          //       setMsg("User Login");
+          //       setAccnt(accounts[0]);
+          //       setAccount(true)
+    
+          //     } else {
+          //       setMsg("Login failed");
+          //     }
+          //   } else {
+          //     setMsg("MetaMask is not installed");
+          //   }
+          // };
 
-        const connectWallet = async () => {
-          if (typeof window != "undefined" && typeof window.ethereum != "undefined") {
-            try {
-              /* MetaMask is installed */
-              const accounts = await window.ethereum.request({
-                method: "eth_requestAccounts",
-              });
-              setWalletAddress(accounts[0]);
-              console.log(accounts[0]);
-            } catch (err) {
-              console.error(err.message);
-            }
-          } else {
-            /* MetaMask is not installed */
-            console.log("Please install MetaMask");
-          }
-        };
-
-      const getCurrentWalletConnected = async () => {
-        if (typeof window != "undefined" && typeof window.ethereum != "undefined") {
-          try {
-            const accounts = await window.ethereum.request({
-              method: "eth_accounts",
-            });
-            if (accounts.length > 0) {
-              setWalletAddress(accounts[0]);
-              console.log(accounts[0]);
-            } else {
-              console.log("Connect to MetaMask using the Connect button");
-            }
-          } catch (err) {
-            console.error(err.message);
-          }
-        } else {
-          /* MetaMask is not installed */
-          console.log("Please install MetaMask");
-        }
-      };
-
-      const addWalletListener = async () => {
-        if (typeof window != "undefined" && typeof window.ethereum != "undefined") {
-          window.ethereum.on("accountsChanged", (accounts) => {
-            setWalletAddress(accounts[0]);
-            console.log(accounts[0]);
+          const providerOptions = {
+            binancechainwallet: {
+              package: true,
+            },
+            walletconnect: {
+              package: WalletConnect, // required
+              options: {
+                infuraId:  process.env.INFURA_ID// required
+              }
+            },
+          
+            coinbasewallet: {
+              package: CoinbaseWalletSDK, // Required
+              options: {
+                appName: "Coinbase", // Required
+                infuraId: process.env.INFURA_ID, // Required
+                chainId: 4, //4 for Rinkeby, 1 for mainnet (default)
+              },
+            },
+          };
+        
+          const web3Modal = new Web3Modal({
+            network: "rinkeby",
+            theme: "light", // optional, 'dark' / 'light',
+            cacheProvider: false, // optional
+            providerOptions, // required
           });
-        } else {
-          /* MetaMask is not installed */
-          setWalletAddress("");
-          console.log("Please install MetaMask");
-        }
-      };
+        
+          const [connectedAccount, setConnectedAccount] = useState("");
+        
+          const connectWeb3Wallet = async () => {
+            try {
+              const web3Provider = await web3Modal.connect();
+              const library = new ethers.providers.Web3Provider(web3Provider);
+              const web3Accounts = await library.listAccounts();
+              setConnectedAccount(web3Accounts[0]);
+            } catch (error) {
+              console.log(error);
+            }
+          };
+        
+          const disconnectWeb3Modal = async () => {
+            await web3Modal.clearCachedProvider();
+            setConnectedAccount("");
+          };
+        
 
 
   return (
     <div >
-
         <div className="relative bg-[#022738]">
           <div className="max-w-7xl mx-auto px-4 sm:px-6">
             <div className="flex justify-between items-center border-b-2 border-gray-900 py-6 md:justify-start md:space-x-10">
@@ -136,7 +179,7 @@ export default function Navbar() {
                       About
                     </Link>
 
-                    <Link to={"/about"}
+                    <Link to={"/stake"}
                       className="text-base font-medium text-gray-500 hover:text-gray-900">
                         Stake
                     </Link>
@@ -168,40 +211,68 @@ export default function Navbar() {
               <div className="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
 
                   <div className="relative">
-                      <button 
+
+                      {/* <button 
                       type="button"
                         className="group bg-[#FF6842] rounded-md text-gray-500 inline-flex items-center text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                        
-                          onClick={connectWallet}
+                        onClick={cryptoButton}
                       >
-                                  
-                        <a
-                          href="#"
-                            className="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-[#FF6842] hover:bg-[#FF6842]"
-                          >
-                                       
-                            <span className="is-link has-text-weight-bold">
-                            {walletAddress && walletAddress.length > 0
-                              ? `Connected: ${walletAddress.substring(
-                                  0,
-                                  6
-                              )}...${walletAddress.substring(38)}`
-                              : "Connect Wallet"}
-                            </span>
-                                    
-                          </a> 
+                                
+                          <Link to={"/wallet"}
+                                className="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-[#FF6842] hover:bg-[#FF6842]"
+                              > 
+                                 connect wallet        
+                            </Link>
+                                     
+                      </button>  */}
 
-                  {/* <Link to={"/connect-wallet"}
-                      className="text-base font-medium text-gray-500 hover:text-gray-900">
+
+                      <button 
+                      type="button"
+                        class="group py-3 px-5 bg-[#FF6842] rounded-md text-gray-500 inline-flex items-center text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                                              
+                                              >
+                                              {/* {connectedAccount && <p>Connected to ${connectedAccount}</p>} */}
+                                              <Link to={"/wallet"}>
+                                                Wallet
+                                              </Link>
+                                              
+
+                                {!connectedAccount ? (
+                                  <button class
+                                   onClick={connectWeb3Wallet}>
+                                     <span class='p-1'>Connect </span>
+                                    </button>
+                                ) : (
+                                
+                                  <button onClick={disconnectWeb3Modal}>
+                                     <span class='p-1'>Disconnect </span>
+                                  </button>
+                                 
+                                )}
+
+                           
+                        </button> 
+                    
+
+                      {/* {!connected ?( <button className="ConnectBtn" onClick={cryptoButton}>
                           Connect Wallet
-                    </Link> */}
-
-                          
-                      </button>
+                          <Homepage/>
+                        </button>):(
+                          <div>
+                            Not Connected
+                          // <UserDashboardHome/>
+                          </div>
+                        )}  */}
+                  
                     </div>
               </div>
+
+
             </div>
           </div>
+
         </div>
     </div>
   )
