@@ -6,6 +6,8 @@ import CommunityPage from './pages/CommunityPage';
 import ContactPage from './pages/ContactPage';
 import PricingMonthly from './pages/PricingMonthly';
 import Stake from './pages/Stake';
+import * as buffer from "buffer";
+window.Buffer = buffer.Buffer;
 
 
 const App = () => {

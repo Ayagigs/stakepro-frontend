@@ -1,15 +1,19 @@
+
+// vite.config.js
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import nodePolyfills from 'vite-plugin-node-stdlib-browser'
 
-// https://vitejs.dev/config/
 export default defineConfig({
   define: {
-      global: '({})',
-    'process.env': {},
-},
-  plugins: [react(), nodePolyfills()],
+           global: '({})',
+         'process.env': {},
+     },
+  // other options
+  plugins: [react(), nodePolyfills()]
 })
+
+
 
 
 
