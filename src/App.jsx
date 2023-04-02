@@ -9,6 +9,7 @@ import PricingMonthly from './pages/PricingMonthly';
 import SideNavbar from './components/SideNavbar';
 
  import { useMetaMask } from "metamask-react";
+import Stake from './pages/Stake';
 
 
 const App = () => {
@@ -30,9 +31,10 @@ const App = () => {
   if (status === "notConnected") return <div>
 
 <Routes>
-          <Route path="/" element={<LandingPage/>}></Route> 
-          <Route path="home" element={<Homepage/>}></Route>
+          {/* <Route path="/" element={<LandingPage/>}></Route>  */}
+          <Route path="/" element={<Homepage/>}></Route>
           <Route path="about" element={<AboutUsPage/>}></Route> 
+          <Route path="stake" element={<Stake/>}></Route> 
           <Route path="pricing" element={<PricingMonthly/>}></Route> 
           <Route path="blogs" element={<BlogsPage/>}></Route> 
           <Route path="community" element={<CommunityPage/>}></Route> 
