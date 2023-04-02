@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-// import { ethers } from "ethers";
+import { ethers } from "ethers";
 import { Link } from 'react-router-dom';
 import logo from '../assets/stakepro_log.svg';
 import percon_icon from '../assets/person.svg';
@@ -7,10 +7,10 @@ import UserDashboardHome from '../dashboard/HomeDashboard/UserDashboardHome';
 //Start
 
 
-import Web3Modal from "web3modal";
-import { ethers } from "ethers";
-import WalletConnect from "@walletconnect/web3-provider";
-import CoinbaseWalletSDK from "@coinbase/wallet-sdk";
+// import Web3Modal from "web3modal";
+// import { ethers } from "ethers";
+// import WalletConnect from "@walletconnect/web3-provider";
+// import CoinbaseWalletSDK from "@coinbase/wallet-sdk";
 
 //Motseki
 // const randomString = function (length) {
