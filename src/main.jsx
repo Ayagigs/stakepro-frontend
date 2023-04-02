@@ -4,6 +4,7 @@ import { BrowserRouter } from 'react-router-dom';
 import App from './App'
 import './index.css'
 
+// window.Buffer = require("buffer/").Buffer;
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
