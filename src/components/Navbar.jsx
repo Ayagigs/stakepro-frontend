@@ -196,7 +196,7 @@ export default function Navbar() {
                         onClick={connectWeb3Wallet}
                       >
                                 
-                          <Link to={"/wallet"}
+                          <Link to={"/stake"}
                                 className="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-[#FF6842] hover:bg-[#FF6842]"
                               > 
                                  connect wallet        
