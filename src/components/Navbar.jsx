@@ -4,6 +4,16 @@ import logo from '../assets/stakepro_log.svg';
 import percon_icon from '../assets/person.svg';
 
 
+
+//Motseki Start
+// import logo from "./logo.svg";
+// import "./App.css";
+import Web3Modal from "web3modal";
+import { ethers } from "ethers";
+// import { useState } from "react";
+import WalletConnect from "@walletconnect/web3-provider";
+import CoinbaseWalletSDK from "@coinbase/wallet-sdk";
+
 export default function Navbar() {
   const [show, setShow] = useState(false);
 
@@ -12,68 +22,54 @@ export default function Navbar() {
         const [flyerTwo, setFlyerTwo] = React.useState(false);
         const [flyerThree, setFlyerThree] = React.useState(false);
 
-
-
-        const [walletAddress, setWalletAddress] = useState("");
-
-        useEffect(() => {
-          getCurrentWalletConnected();
-          addWalletListener();
-        }, [walletAddress]);
-
-        const connectWallet = async () => {
-          if (typeof window != "undefined" && typeof window.ethereum != "undefined") {
-            try {
-              /* MetaMask is installed */
-              const accounts = await window.ethereum.request({
-                method: "eth_requestAccounts",
-              });
-              setWalletAddress(accounts[0]);
-              console.log(accounts[0]);
-            } catch (err) {
-              console.error(err.message);
+        //Motseki Start
+        const providerOptions = {
+          binancechainwallet: {
+            package: true,
+          },
+          walletconnect: {
+            package: WalletConnect, // required
+            options: {
+              infuraId:  process.env.INFURA_ID// required
             }
-          } else {
-            /* MetaMask is not installed */
-            console.log("Please install MetaMask");
+          },
+        
+          coinbasewallet: {
+            package: CoinbaseWalletSDK, // Required
+            options: {
+              appName: "Coinbase", // Required
+              infuraId: process.env.INFURA_ID, // Required
+              chainId: 4, //4 for Rinkeby, 1 for mainnet (default)
+            },
+          },
+        };
+      
+        const web3Modal = new Web3Modal({
+          network: "rinkeby",
+          theme: "light", // optional, 'dark' / 'light',
+          cacheProvider: false, // optional
+          providerOptions, // required
+        });
+      
+        const [connectedAccount, setConnectedAccount] = useState("");
+      
+        const connectWeb3Wallet = async () => {
+          try {
+            const web3Provider = await web3Modal.connect();
+            const library = new ethers.providers.Web3Provider(web3Provider);
+            const web3Accounts = await library.listAccounts();
+            setConnectedAccount(web3Accounts[0]);
+          } catch (error) {
+            console.log(error);
           }
         };
-
-      const getCurrentWalletConnected = async () => {
-        if (typeof window != "undefined" && typeof window.ethereum != "undefined") {
-          try {
-            const accounts = await window.ethereum.request({
-              method: "eth_accounts",
-            });
-            if (accounts.length > 0) {
-              setWalletAddress(accounts[0]);
-              console.log(accounts[0]);
-            } else {
-              console.log("Connect to MetaMask using the Connect button");
-            }
-          } catch (err) {
-            console.error(err.message);
-          }
-        } else {
-          /* MetaMask is not installed */
-          console.log("Please install MetaMask");
-        }
-      };
-
-      const addWalletListener = async () => {
-        if (typeof window != "undefined" && typeof window.ethereum != "undefined") {
-          window.ethereum.on("accountsChanged", (accounts) => {
-            setWalletAddress(accounts[0]);
-            console.log(accounts[0]);
-          });
-        } else {
-          /* MetaMask is not installed */
-          setWalletAddress("");
-          console.log("Please install MetaMask");
-        }
-      };
-
-
+      
+        const disconnectWeb3Modal = async () => {
+          await web3Modal.clearCachedProvider();
+          setConnectedAccount("");
+        };
+      
+       
   return (
     <div >
 
@@ -172,7 +168,7 @@ export default function Navbar() {
                       type="button"
                         className="group bg-[#FF6842] rounded-md text-gray-500 inline-flex items-center text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                        
-                          onClick={connectWallet}
+                          onClick={connectWeb3Wallet}
                       >
                                   
                         <a
@@ -180,14 +176,8 @@ export default function Navbar() {
                             className="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-[#FF6842] hover:bg-[#FF6842]"
                           >
                                        
-                            <span className="is-link has-text-weight-bold">
-                            {walletAddress && walletAddress.length > 0
-                              ? `Connected: ${walletAddress.substring(
-                                  0,
-                                  6
-                              )}...${walletAddress.substring(38)}`
-                              : "Connect Wallet"}
-                            </span>
+                          
+                            Connect Wallet
                                     
                           </a> 
 

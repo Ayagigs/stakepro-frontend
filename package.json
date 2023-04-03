@@ -9,12 +9,16 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@coinbase/wallet-sdk": "^3.6.5",
     "@react-oauth/google": "^0.8.0",
+    "@walletconnect/web3-provider": "^1.8.0",
+    "ethers": "^6.2.3",
     "metamask-react": "^2.6.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router": "^6.8.2",
-    "react-use-googlelogin": "^0.12.5"
+    "react-use-googlelogin": "^0.12.5",
+    "web3modal": "^1.9.12"
   },
   "devDependencies": {
     "@types/react": "^18.0.27",
