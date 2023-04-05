@@ -166,32 +166,24 @@ export default function Navbar() {
               <div className="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
 
                   <div className="relative">
-                      {/* <button 
+                     <button 
                       type="button"
                         className="group bg-[#FF6842] rounded-md text-gray-500 inline-flex items-center text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                        
-                          onClick={connectWeb3Wallet}
+                          // onClick={connectWeb3Wallet}
                       >
                                   
-                        <a
-                          href="#"
+                        <Link to={"/login"}
                             className="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-[#FF6842] hover:bg-[#FF6842]"
                           >
-                                       
-                          
-                            Connect Wallet
+                            Login with wallet
                                     
-                          </a> 
-
-                  {/* <Link to={"/connect-wallet"}
-                      className="text-base font-medium text-gray-500 hover:text-gray-900">
-                          Connect Wallet
-                    </Link> */}
+                    </Link>
 
                           
-                      {/* </button>  */}
+                     </button>   
 
-                      {/* <button 
+                     {/* <button 
                       type="button"
                         className="group bg-[#FF6842] rounded-md text-gray-500 inline-flex items-center text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                        
@@ -205,13 +197,11 @@ export default function Navbar() {
                              
                              </Link>
                                      
-                      </button>  */}
+                      </button>   */}
 
 
                       {/* {connectedAccount && <p>Connected to ${connectedAccount}</p>} */}
-                      {connectedAccount && <Stake/>}
-
-                      {!connectedAccount ? (
+                      {/* {!connectedAccount ? (
                         <button
                         
                         type="button"
@@ -228,7 +218,7 @@ export default function Navbar() {
                         w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-[#FF6842] hover:bg-[#FF6842]"
                        
                         onClick={disconnectWeb3Modal}>Disconnect</button>
-                      )}
+                      )} */}
 
                     
 

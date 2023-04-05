@@ -3,7 +3,73 @@ import { Link } from 'react-router-dom';
 import logo from '../assets/stakepro_log.svg';
 import percon_icon from '../assets/admin_pic.svg';
 
+import Web3Modal from "web3modal";
+import { ethers } from "ethers";
+// import { useState } from "react";
+import WalletConnect from "@walletconnect/web3-provider";
+import CoinbaseWalletSDK from "@coinbase/wallet-sdk";
+import Stake from '../pages/Stake';
+
+
+
 function DashboardSideNavbar() {
+
+  const [show, setShow] = useState(false);
+
+        const [open, setOpen] = React.useState(false);
+        const [flyer, setFlyer] = React.useState(false);
+        const [flyerTwo, setFlyerTwo] = React.useState(false);
+        const [flyerThree, setFlyerThree] = React.useState(false);
+
+        //Motseki Start
+        const providerOptions = {
+          binancechainwallet: {
+            package: true,
+          },
+          walletconnect: {
+            package: WalletConnect, // required
+            options: {
+              infuraId:  process.env.INFURA_ID// required
+            }
+          },
+        
+          coinbasewallet: {
+            package: CoinbaseWalletSDK, // Required
+            options: {
+              appName: "Coinbase", // Required
+              infuraId: process.env.INFURA_ID, // Required
+              chainId: 4, //4 for Rinkeby, 1 for mainnet (default)
+            },
+          },
+        };
+      
+        const web3Modal = new Web3Modal({
+          network: "rinkeby",
+          theme: "light", // optional, 'dark' / 'light',
+          cacheProvider: false, // optional
+          providerOptions, // required
+        });
+      
+        const [connectedAccount, setConnectedAccount] = useState("");
+      
+        const connectWeb3Wallet = async () => {
+          try {
+            const web3Provider = await web3Modal.connect();
+            const library = new ethers.providers.Web3Provider(web3Provider);
+            const web3Accounts = await library.listAccounts();
+            setConnectedAccount(web3Accounts[0]);
+          } catch (error) {
+            console.log(error);
+          }
+        };
+      
+        const disconnectWeb3Modal = async () => {
+          await web3Modal.clearCachedProvider();
+          setConnectedAccount("");
+        };
+      
+
+
   return (
     <div>
       <div className="flex flex-col h-screen p-3 bg-[#FFFFFF] shadow w-60">
@@ -46,13 +112,13 @@ function DashboardSideNavbar() {
 
 
 
-      <div class="sidebar-header flex items-start justify-start py-4"> 
+      {/* <div class="sidebar-header flex items-start justify-start py-4"> 
         <div class="inline-flex"> 
        
           <a href="#" class="inline-flex flex-row items-start">
             
 
-<a href class="flex flex-row items-start ml-10">
+          <a href class="flex flex-row items-start ml-10">
               
                 <img
                     className="h-8 w-auto sm:h-10"
@@ -70,8 +136,34 @@ function DashboardSideNavbar() {
           </a>
         </div>
 
-      </div>
+      </div> */}
 
+
+      <div class="mt-6 flex flex-col justify-start items-start ml-0  pl-0 w-full space-y-3 pb-5 ">
+
+        {/* <div class="flex flex-col pl-5 m-10 h-10"> */}
+       {connectedAccount && <p>Connected to ${connectedAccount}</p>} 
+       {/* </div> */}
+                    {!connectedAccount ? (
+                        <button
+                        
+                        type="button"
+                        className="group bg-[#FF6842] rounded-md text-gray-500 inline-flex items-center 
+                        text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500
+                        w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-[#FF6842] hover:bg-[#FF6842] "
+                      
+                        onClick={connectWeb3Wallet}>Connect Wallet</button>
+                      ) : (
+                        <button
+                        
+                        type="button"
+                        className="group bg-[#FF6842] rounded-md text-gray-500 inline-flex items-center text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500
+                        w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-[#FF6842] hover:bg-[#FF6842]"
+                       
+                        onClick={disconnectWeb3Modal}>Disconnect</button>
+                      )} 
+
+</div>
 
       <div class="mt-6 flex flex-col justify-start items-center  pl-4 w-full space-y-3 pb-5 ">
     <button class="flex jusitfy-start items-center space-x-6 w-full  focus:outline-none  focus:text-indigo-400  text-[#FF6842] rounded ">
