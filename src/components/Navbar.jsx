@@ -13,6 +13,7 @@ import { ethers } from "ethers";
 // import { useState } from "react";
 import WalletConnect from "@walletconnect/web3-provider";
 import CoinbaseWalletSDK from "@coinbase/wallet-sdk";
+import Stake from '../pages/Stake';
 
 export default function Navbar() {
   const [show, setShow] = useState(false);
@@ -109,6 +110,7 @@ export default function Navbar() {
                   </svg>
                 </button>
               </div>
+
               <nav className="hidden md:flex space-x-10">
               {/* <a
                   href="#"
@@ -189,20 +191,44 @@ export default function Navbar() {
                           
                       {/* </button>  */}
 
-                      <button 
+                      {/* <button 
                       type="button"
                         className="group bg-[#FF6842] rounded-md text-gray-500 inline-flex items-center text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                        
                         onClick={connectWeb3Wallet}
                       >
                                 
-                          <Link to={"/stake"}
+                          <Link to={"/stake"} 
                                 className="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-[#FF6842] hover:bg-[#FF6842]"
                               > 
                                  connect wallet        
-                            </Link>
+                             
+                             </Link>
                                      
-                      </button> 
+                      </button>  */}
+
+
+                      {/* {connectedAccount && <p>Connected to ${connectedAccount}</p>} */}
+                      {connectedAccount && <Stake/>}
+
+                      {!connectedAccount ? (
+                        <button
+                        
+                        type="button"
+                        className="group bg-[#FF6842] rounded-md text-gray-500 inline-flex items-center 
+                        text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500
+                        w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-[#FF6842] hover:bg-[#FF6842] "
+                      
+                        onClick={connectWeb3Wallet}>Connect Wallet</button>
+                      ) : (
+                        <button
+                        
+                        type="button"
+                        className="group bg-[#FF6842] rounded-md text-gray-500 inline-flex items-center text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500
+                        w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-[#FF6842] hover:bg-[#FF6842]"
+                       
+                        onClick={disconnectWeb3Modal}>Disconnect</button>
+                      )}
 
                     
 

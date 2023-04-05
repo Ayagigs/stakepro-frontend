@@ -20,7 +20,8 @@ function Homepage(props) {
       <section id="cta1" class="flex flex-row bg-[#022738]  h-[29.75rem]">
      
      <div
-       class="container flex flex-col items-start w-[50%] text-start justify-between px-6 py-24 mx-auto space-y-12  md:py-12 md:flex-col md:space-y-10"
+       class="container flex flex-col items-start w-[50%] text-start justify-between px-6 py-24 mx-auto space-y-12  md:py-12 
+       md:flex-col md:space-y-10"
      >
        {/* <!-- Heading --> */}
        <h2
@@ -40,13 +41,13 @@ function Homepage(props) {
         You can also use mobile money to withdraw your profits.
        </h6> 
 
-       <div>
+       {/* <div> */}
          <a
            href="#"
            class="p-3 px-6 pt-2 text-white bg-[#FF6842] rounded-[2%] shadow-2xl baseline hover:bg-gray-900"
            >Start Staking</a
          >
-       </div>
+       {/* </div> */}
      </div>
 
      {/* <div
