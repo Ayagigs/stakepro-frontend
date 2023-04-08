@@ -518,8 +518,8 @@ function UserContentB() {
             )}
            
 
-<div class="flex flex-row w-full min-h-[205px] justify-center pl-20 space-x-5 items-center border-radius-[10px]
-      bg-transparent bg-no-repeat bg-cover bg-[url('/img/stake_dashboard.svg')]  ml-5">
+<div class="flex flex-row w-full min-h-[205px] justify-end pr-6  items-center border-radius-[10px]
+      bg-transparent bg-no-repeat bg-cover bg-[url('/img/stake_dashboard.svg')] m-2">
            <div class="flex flex-row m-5 mt-0 h-[92px] justify-evenly"> 
                  
                   <div class="flex flex-row space-x-2 pt-4">
