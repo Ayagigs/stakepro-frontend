@@ -530,7 +530,7 @@ function UserContentB() {
                           </div>
                           <div class='flex felx-row'>
                           <div class="mt-1 text-[35px] font-semibold text-white">
-                          {myBalance.substring(0, 5)}
+                            0.025
                           </div>
                           <div class="mt-1 text-[20px] font-semibold text-[#FFFFFF]">
                            ETH
@@ -544,7 +544,7 @@ function UserContentB() {
                           </div>
                           <div class='flex felx-row'>
                           <div class="mt-1 text-[35px] font-semibold text-white">
-                            {stakeValue}
+                            0.633
                           </div>
                           <div class="mt-1 text-[20px] font-semibold text-[#FFFFFF]">
                            ETH
@@ -558,7 +558,7 @@ function UserContentB() {
                           </div>
                           <div class='flex felx-row'>
                           <div class="mt-1 text-[35px] font-semibold text-white">
-                            {stakeValue * 0.045}
+                            0.0013
                           </div>
                           <div class="mt-1 text-[18px] font-semibold text-[#FFFFFF]">
                            ETH
@@ -572,7 +572,7 @@ function UserContentB() {
                           </div>
                           <div class='flex felx-row'>
                           <div class="mt-1 text-[35px] font-semibold text-white">
-                            {stakeValue * 0.045}
+                            0.0013
                           </div>
                           <div class="mt-1 text-[20px] font-semibold text-[#FFFFFF]">
                            ETH
