@@ -47,8 +47,6 @@ import Stake from '../pages/Stake';
 
 function UserContentA() {
 
-
-
   const [show, setShow] = useState(false);
 
   const [open, setOpen] = React.useState(false);
@@ -499,10 +497,6 @@ function UserContentA() {
 
 <DashboardTopNavbar/> 
 
-
-
-
-
 <ChakraProvider theme={theme}>
       <Box textAlign="center" fontSize="xl">
         <Grid minH="100vh" p={3}>
@@ -517,7 +511,6 @@ function UserContentA() {
               </Alert>
             )}
            
-
 <div class="flex flex-row w-full min-h-[205px] justify-end pl-2 items-center border-radius-[10px]
       bg-transparent bg-no-repeat bg-cover bg-[url('/img/stake_dashboard.svg')]  m-0">
            <div class="flex flex-row m-5 mt-0 h-[92px] justify-evenly"> 
@@ -530,7 +523,9 @@ function UserContentA() {
                           </div>
                           <div class='flex felx-row'>
                           <div class="mt-1 text-[35px] font-semibold text-white">
-                          {myBalance.substring(0, 5)}
+                          {/* {stakeValue ? (myBalance.substring(0, 5) - stakeValue) : (myBalance.substring(0, 5))} */}
+
+                           {myBalance.substring(0, 5) }  
                           </div>
                           <div class="mt-1 text-[20px] font-semibold text-[#FFFFFF]">
                            ETH
@@ -572,7 +567,9 @@ function UserContentA() {
                           </div>
                           <div class='flex felx-row'>
                           <div class="mt-1 text-[35px] font-semibold text-white">
-                            {stakeValue * 0.045}
+                          
+                               {stakeValue * 0.045}
+                       
                           </div>
                           <div class="mt-1 text-[20px] font-semibold text-[#FFFFFF]">
                            ETH
@@ -604,7 +601,7 @@ function UserContentA() {
               <Text>ETH</Text>
               <Text pl={5}>4.5%</Text>
               <Text pl={5}>180Days</Text>
-              <Text pl={5}>0.001ETH</Text>
+              <Text pl={5}>0.02ETH</Text>
               
               <Input
                 value={mintValue}
@@ -631,7 +628,7 @@ function UserContentA() {
               <Text>STX</Text>
               <Text pl={5}>4.5%</Text>
               <Text pl={5}>Locked</Text>
-              <Text pl={5}>0.001STX</Text>
+              <Text pl={5}>0.02STX</Text>
               
               <Input></Input>
               <Button px={10} colorScheme='red'>Stake</Button>
@@ -645,7 +642,7 @@ function UserContentA() {
               <Text px={-2}>LTC</Text>
               <Text pl={5}>4.5%</Text>
               <Text pl={5}>Locked</Text>
-              <Text pl={5}>0.001LTC</Text>
+              <Text pl={5}>0.02LTC</Text>
               <Input></Input>
               <Button px={20}>Coming soon!</Button>
             </HStack>
