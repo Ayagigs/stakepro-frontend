@@ -606,7 +606,7 @@ function UserContentA() {
               <Input
                 value={mintValue}
                 onChange={(e) => setMintValue(e.target.value)}
-                placeholder="enter value to mint"
+                placeholder="enter value to stake"
               ></Input>
               <Button 
               onClick={mint} 
