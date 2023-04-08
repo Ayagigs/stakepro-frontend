@@ -1,11 +1,12 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 import { useNavigate } from "react-router-dom";
-import Navbar from './Navbar'
 import home_section1 from '../pages/home_section1';
 import logo from '../assets/under_contruction.jpg';
 import home_svg from '../assets/home.svg';
 import './home.css';
-import Footer from './Footer';
+import NavbarResponsive from './NavbarResponsive';
+import FooterResponsive from './FooterResponsive';
 
 {/* <link rel="stylesheet" href="css/main.css" /> */}
 
@@ -15,72 +16,78 @@ function Homepage(props) {
 
   return (
     <div>
-      <Navbar/>
+      {/* <Navbar/> */}
+      <NavbarResponsive/>
 
-      <section id="cta1" class="flex flex-row bg-[#022738]  h-[29.75rem]">
-     
-     <div
-       class="container flex flex-col items-start w-[50%] text-start justify-between px-6 py-24 mx-auto space-y-12  md:py-12 
-       md:flex-col md:space-y-10"
-     >
-       {/* <!-- Heading --> */}
+
+    <div class="px-5 py-24 mx-auto flex flex-wrap w-full bg-[#022738]">
+     <div class="h-full p-4 lg:w-1/2">
+       <div class=" bg-[#022738] px-8 pt-16 pb-16 relative">
+
        <h2
          // class="text-5xl font-bold leading-tight text-center text-white md:text-4xl md:max-w-xl md:text-left"
          class="text-5xl font-bold leading-tight text-start text-white md:text-4xl md:max-w-full md:text-left"
        >
-         {/* Simplify how your team works today */}
-         Make <span class="text-[#FF6842]">Profit</span> and Get <br></br> <span class="text-[#FF6842]">Rewarding</span> Returns on<br></br> Crypto Investment
+          Stake Your Crypto, Earn Rewards, Join the Future
        </h2>
-       {/* <!-- Button --> */}
 
-       <h6
-         class="text-[18px] font-normal leading-tight text-start text-white md:text-sm md:max-w-full md:text-start"
-       >
-        Our secured platform is designed to make crypto trading easy and accessible, no matter where you are 
-        located. With just a few clicks, you can deposit money with mobile money, buy crypto, and start trading. 
-        You can also use mobile money to withdraw your profits.
-       </h6> 
-
-       {/* <div> */}
-         <a
-           href="#"
-           class="p-3 px-6 pt-2 text-white bg-[#FF6842] rounded-[2%] shadow-2xl baseline hover:bg-gray-900"
-           >Start Staking</a
-         >
-       {/* </div> */}
-     </div>
-
-     {/* <div
-       class="container bg-brightRed w-[50%]  bg-[url('../img/community.svg')] h-[29.75rem]"
-     >
        
-     </div> */}
-     <div
-       class="container bg-[#022738] h-[29.75rem] w-[50%]"
-     >
-       <div class="container bg-[#022738] w-[614px] m-10 bg-[url('../img/home.svg')] h-[369px]"></div>
+       <h4
+         class="text-[18px] mt-10 mb-10 font-normal leading-tight text-start text-white md:text-sm md:max-w-full md:text-start"
+       >
+     Our secured platform is designed to make crypto staking easy and accessible, no matter where you are 
+     located. With just a few clicks, you can connect your crypto wallet and start staking. Use StakePro and 
+     start earning rewards today.
+       </h4> 
+
+       <Link to={"/login"}
+           class="p-3 px-6  pt-2 text-white bg-[#FF6842] rounded-[2%] shadow-2xl baseline hover:bg-gray-900"
+           >Start Staking
+      </Link>
+
+
+       </div>
      </div>
-   </section>
+    
+     <div class="h-full p-4 lg:w-1/2 bg-[#022738] flex items-center justify-center">
+       <div class="bg-[#022738] px-0 pt-0 pb-16 relative">
+       <div class="container  bg-[#022738] w-[614px] bg-[url('../img/home.svg')] h-[369px]"></div>
+       </div>
+     </div>
+   </div>
+
+{/* 
+   <div class="container px-5 py-24 mx-auto flex flex-wrap">
+     <div class="h-full p-4 lg:w-full">
+       <div class=" bg-gray-100 px-8 pt-16 pb-16 relative">
+         <h2 class="text-xs mb-1">CATEGORY</h2>
+         <h1 class="title-font sm:text-2xl text-xl  mb-3">Raclette Blueberry Nextious</h1>
+         <p class="mb-3">Photo booth fam kinfolk cold-pressed sriracha leggings jianbing microdosing tousled waistcoat.</p>
+         <a class="text-indigo-500 inline-flex items-center">Learn More</a>
+       </div>
+     </div>
+   </div> */}
+
 
 
      {/* <!-- Testimonials --> */}
      <section id="testimonials">
       {/* <!-- Container to heading and testm blocks --> */}
-      <div class="max-w-6xl px-5 mx-auto mt-0 text-center">
+      <div class="max-w-6xl px-5 mx-auto mt-5 text-center">
         {/* <!-- Heading --> */}
 
         <h2 class="text-lg font-bold text-center text-[#E85631]">
-          Get All Crypto Coin
+         Coins, Buy and Sell, Get Rewards
         </h2>
      
-        <h2 class="text-4xl font-bold text-center">
-          Get All Crypto Coin
+        <h2 class="text-4xl font-bold pt-5 text-center">
+          Trending Assets
         </h2>
         {/* <!-- Testimonials Container --> */}
-        <div class="flex flex-col mt-24 md:flex-row md:space-x-6">
+        <div class="flex flex-col mt-5 md:flex-row md:space-x-6">
           {/* <!-- Testimonial 1 --> */}
           <div
-            class="flex flex-col items-center p-6 space-y-6 rounded-lg bg-veryLightGray md:w-1/3"
+            class="flex flex-col items-center p-6 space-y-6 rounded-lg bg-transparent md:w-1/3"
           >
             <div class="flex flex-row">
             {/* <img src="img/bitcoin_icon.svg" class="w-16 -mt-14" alt="" /> */}
@@ -95,7 +102,7 @@ function Homepage(props) {
 
           {/* <!-- Testimonial 2 --> */}
           <div
-            class="hidden flex-col items-center p-6 space-y-6 rounded-lg bg-veryLightGray md:flex md:w-1/3"
+            class="hidden flex-col items-center p-6 space-y-6 rounded-lg bg-transparent md:flex md:w-1/3"
           >
             <div class="flex flex-row">
             <img src="img/ethereum_icon.svg"  alt="" />
@@ -109,7 +116,7 @@ function Homepage(props) {
 
           {/* <!-- Testimonial 3 --> */}
           <div
-            class="hidden flex-col items-center p-6 space-y-6 rounded-lg bg-veryLightGray md:flex md:w-1/3"
+            class="hidden flex-col items-center p-6 space-y-6 rounded-lg bg-transparent md:flex md:w-1/3"
           >
             <div class="flex flex-row">
             <img src="img/monero_icon.svg" alt="" />
@@ -124,7 +131,7 @@ function Homepage(props) {
 
            {/* <!-- Testimonial 3 --> */}
            <div
-            class="hidden flex-col items-center p-6 space-y-6 rounded-lg bg-veryLightGray md:flex md:w-1/3"
+            class="hidden flex-col items-center p-6 space-y-6 rounded-lg bg-transparent md:flex md:w-1/3"
           >
             <div class="flex flex-row">
             <img src="img/litecoin_icon.svg" alt="" />
@@ -140,68 +147,58 @@ function Homepage(props) {
       </div>
     </section>
 
-<section class="overflow-hidden text-neutral-700">
-  <div class="flex flex-row">
-  {/* <div> */}
-  <div class="mx-auto px-0 py-2 lg:px-0 lg:pt-12">
-    <ul>
-      <li>Give Crypto Trading Classes</li>
-      <li>One on One Couching Sections</li>
-      <li>Identify your Ideal Coins</li>
-      <li>Advice and Recommendations</li>
-      <li>Trend Recommendations</li>
-      <li>Develop Better Investment Strategies</li>
-    </ul>
-  </div>
-  {/* <div class="container mx-auto px-5 py-2 lg:px-32 lg:pt-12"> */}
-  <div class="container mx-auto px-0 py-2 lg:px-0 lg:pt-12">
-    <div class="-m-1 flex flex-wrap md:-m-2">
-      <div class="flex w-1/2 flex-wrap">
-        <div class="w-full p-1 md:p-2">
-          <img
-            alt="gallery"
-            class="block h-full w-full rounded-lg object-cover object-center"
-            src="https://tecdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(73).webp"
-             />
-        </div>
-      </div>
-      <div class="flex w-1/2 flex-wrap">
-        <div class="w-full p-1 md:p-2">
-          <img
-            alt="gallery"
-            class="block h-full w-full rounded-lg object-cover object-center"
-            src="https://tecdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(74).webp" />
-        </div>
-      </div>
-      <div class="flex w-1/3 flex-wrap">
-        <div class="w-full p-1 md:p-2">
-          <img
-            alt="gallery"
-            class="block h-full w-full rounded-lg object-cover object-center"
-            src="https://tecdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(75).webp" />
-        </div>
-          </div>
-          <div class="flex w-1/3 flex-wrap">
-            <div class="w-full p-1 md:p-2">
-              <img
-                alt="gallery"
-                class="block h-full w-full rounded-lg object-cover object-center"
-                src="https://tecdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(70).webp" />
-            </div>
-          </div>
-          <div class="flex w-1/3 flex-wrap">
-            <div class="w-full p-1 md:p-2">
-              <img
-                alt="gallery"
-                class="block h-full w-full rounded-lg object-cover object-center"
-                src="https://tecdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(76).webp" />
-            </div>
-          </div>
-        </div>
-      </div>
-      </div>
-    </section>
 
+
+
+
+    {/* <div class="container px-5 py-24 mx-auto flex flex-wrap">
+     <div class="h-full p-4 lg:w-1/2">
+       <div class=" bg-gray-100 px-8 pt-16 pb-16 relative">
+         <h2 class="text-xs mb-1">CATEGORY</h2>
+         <h1 class="title-font sm:text-2xl text-xl  mb-3">Raclette Blueberry Nextious</h1>
+         <p class="mb-3">Photo booth fam kinfolk cold-pressed sriracha leggings jianbing microdosing tousled waistcoat.</p>
+         <a class="text-indigo-500 inline-flex items-center">Learn More</a>
+       </div>
+     </div>
+     <div class="h-full p-4 lg:w-1/2">
+       <div class="bg-gray-100 px-8 pt-16 pb-16 relative">
+         <h2 class="text-xs mb-1">CATEGORY</h2>
+         <h1 class="title-font sm:text-2xl text-xl  mb-3">Ennui Snackwave Thundercats</h1>
+         <p class="mb-3">Photo booth fam kinfolk cold-pressed sriracha leggings jianbing microdosing tousled waistcoat.</p>
+         <a class="text-indigo-500 inline-flex items-center">Learn More</a>
+       </div>
+ 
+
+   </div> */}
+
+
+   {/* <div class="container px-5 py-24 mx-auto flex flex-wrap">
+     <div class="h-full p-4 lg:w-1/3">
+       <div class=" bg-gray-100 px-8 pt-16 pb-16 relative">
+         <h2 class="text-xs mb-1">CATEGORY</h2>
+         <h1 class="title-font sm:text-2xl text-xl  mb-3">Raclette Blueberry Nextious</h1>
+         <p class="mb-3">Photo booth fam kinfolk cold-pressed sriracha leggings jianbing microdosing tousled waistcoat.</p>
+         <a class="text-indigo-500 inline-flex items-center">Learn More</a>
+       </div>
+     </div>
+     <div class="h-full p-4 lg:w-1/3">
+       <div class="bg-gray-100 px-8 pt-16 pb-16 relative">
+         <h2 class="text-xs mb-1">CATEGORY</h2>
+         <h1 class="title-font sm:text-2xl text-xl  mb-3">Ennui Snackwave Thundercats</h1>
+         <p class="mb-3">Photo booth fam kinfolk cold-pressed sriracha leggings jianbing microdosing tousled waistcoat.</p>
+         <a class="text-indigo-500 inline-flex items-center">Learn More</a>
+       </div>
+     </div>
+     <div class="h-full p-4 lg:w-1/3">
+       <div class="bg-gray-100 px-8 pt-16 pb-16 relative">
+         <h2 class="text-xs mb-1">CATEGORY</h2>
+         <h1 class="title-font sm:text-2xl text-xl mb-3">Selvage Poke Waistcoat</h1>
+         <p class="mb-3">Photo booth fam kinfolk cold-pressed sriracha leggings jianbing microdosing tousled waistcoat.</p>
+         <a class="text-indigo-500 inline-flex items-center">Learn More</a>
+       </div>
+     </div>
+   </div> */}
+  
 
     {/* <!-- Testimonials --> */}
     <section id="testimonials" class="bg-[#022738]">
@@ -497,7 +494,8 @@ function Homepage(props) {
 
     
 
-  <Footer/>
+  {/* <Footer/> */}
+  <FooterResponsive/>
 
 
 

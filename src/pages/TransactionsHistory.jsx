@@ -7,19 +7,20 @@ import UserDashboardFooterNav from '../dashboard/UserDashboardFooterNav';
 import UserContentA from '../dashboard/UserContentA';
 import SideNavbar from '../dashboard/SideNavbar';
 import DashboardSideNavbar from '../dashboard/DashboardSideNavbar';
+import SideNavbarHistory from '../dashboard/SideNavbarHistory';
 
 
 {/* <link rel="stylesheet" href="css/main.css" /> */}
 
 
-function Stake(props) {
+function TransactionsHistory(props) {
   const navigate = useNavigate();
 
   return (
     <div>
-      <SideNavbar/> 
+     <SideNavbarHistory/>
     </div>
   )
 }
 
-export default Stake
+export default TransactionsHistory

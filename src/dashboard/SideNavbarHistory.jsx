@@ -4,11 +4,12 @@ import UserContentA from "./UserContentA";
 import UserDashboardFooterNav from "./UserDashboardFooterNav";
 import DashboardSideNavbar from "./DashboardSideNavbar";
 import DashboardTopNavbar from "./DashboardTopNavbar";
+import UserContentB from "./UserContentB";
 
-export default function SideNavbar() {
+export default function SideNavbarHistory() {
     return (
         <div className="flex flex-col">
-            <UserContentA/>           
+            <UserContentB/>           
             <UserDashboardFooterNav/> 
         </div>
     );

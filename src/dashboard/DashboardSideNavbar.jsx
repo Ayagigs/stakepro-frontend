@@ -110,35 +110,6 @@ function DashboardSideNavbar() {
 
       </div>
 
-
-
-      {/* <div class="sidebar-header flex items-start justify-start py-4"> 
-        <div class="inline-flex"> 
-       
-          <a href="#" class="inline-flex flex-row items-start">
-            
-
-          <a href class="flex flex-row items-start ml-10">
-              
-                <img
-                    className="h-8 w-auto sm:h-10"
-                    src={percon_icon} alt='logo'
-                  /> 
-              
-
-              <span class="flex flex-col ml-2">
-                <span class="truncate w-auto font-semibold tracking-wide leading-none">Belrah Mercy</span>
-                <span class="truncate w-20 text-gray-500 text-xs leading-none mt-1">ID 12345678</span>
-              </span>
-            </a>
-
-
-          </a>
-        </div>
-
-      </div> */}
-
-
       <div class="mt-6 flex flex-col justify-start items-start ml-0  pl-0 w-full space-y-3 pb-5 ">
 
         {/* <div class="flex flex-col pl-5 m-10 h-10"> */}

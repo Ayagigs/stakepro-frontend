@@ -1,12 +1,13 @@
 import React from 'react'
-import Navbar from '../components/Navbar'
 import logo from '../assets/under_contruction.jpg';
-import Footer from '../components/Footer';
+// import Footer from '../components/Footer';
+import NavbarResponsive from '../components/NavbarResponsive';
+import FooterResponsive from '../components/FooterResponsive';
 
 function PricingMonthly() {
   return (
     <div>
-      <Navbar/>
+      <NavbarResponsive/>
      
       <section id="cta1" class="bg-brightRed  bg-[url('../img/pricing_image.svg')] h-[29.75rem]">
       {/* <!-- Flex Container --> */}
@@ -66,7 +67,7 @@ function PricingMonthly() {
 
 
 
-     <Footer/>
+     <FooterResponsive/>
     </div>
   )
 }

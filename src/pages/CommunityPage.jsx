@@ -1,12 +1,13 @@
 import React from 'react'
-import Navbar from '../components/Navbar'
 import logo from '../assets/under_contruction.jpg';
-import Footer from '../components/Footer';
+// import Footer from '../components/Footer';
+import NavbarResponsive from '../components/NavbarResponsive';
+import FooterResponsive from '../components/FooterResponsive';
 
 function CommunityPage() {
   return (
     <div>
-      <Navbar/>
+      <NavbarResponsive/>
       <section id="cta1" class="flex flex-row bg-white  h-[29.75rem]">
      
       <div
@@ -85,7 +86,7 @@ function CommunityPage() {
 
 
      
-     <Footer/>
+     <FooterResponsive/>
     </div>
   )
 }

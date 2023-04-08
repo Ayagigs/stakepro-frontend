@@ -1,12 +1,13 @@
 import React from 'react'
-import Navbar from '../components/Navbar'
 import logo from '../assets/under_contruction.jpg';
-import Footer from '../components/Footer';
+// import Footer from '../components/Footer';
+import NavbarResponsive from '../components/NavbarResponsive';
+import FooterResponsive from '../components/FooterResponsive';
 
 function ContactPage() {
   return (
     <div>
-      <Navbar/>
+      <NavbarResponsive/>
       <section id="cta1" class="bg-whitesmoke  h-[29.75rem]">
       {/* <!-- Flex Container --> */}
       {/* <div
@@ -116,7 +117,7 @@ function ContactPage() {
 
 
       
-      <Footer/>
+      <FooterResponsive/>
     </div>
   )
 }
